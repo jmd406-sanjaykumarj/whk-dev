@@ -1,0 +1,30 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+{
+  "name": "Attach to FastAPI (Docker)",
+  "type": "debugpy",
+  "request": "attach",
+  "connect": {
+    "host": "localhost",
+    "port": 5678
+  },
+  "pathMappings": [
+    {
+      "localRoot": "${workspaceFolder}/backend",
+      "remoteRoot": "/app"
+    }
+  ]
+},
+    {
+      "name": "Debug jlens (Vite)",
+      "type": "pwa-chrome",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}/frontend/apps/jlens",
+      "sourceMaps": true,
+      "skipFiles": ["<node_internals>/**"],
+      "trace": true
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+{
+  "name": "Debug jlens (Vite)",
+  "type": "pwa-chrome",
+  "request": "launch",
+  "url": "http://localhost:3000",
+  "webRoot": "${workspaceFolder}/apps/jlens",
+  "sourceMaps": true,
+  "skipFiles": ["<node_internals>/**"],
+  "sourceMapPathOverrides": {
+    "/src/*": "${workspaceFolder}/apps/jlens/src/*"
+  },
+  "trace": true
+}
+  ]
+}
