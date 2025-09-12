@@ -1,0 +1,27 @@
+{
+  "name": "Backend Dev Container",
+  "dockerComposeFile": [
+    "../../docker-compose.dev-container.yml"  // path from .devcontainer folder
+  ],
+  "service": "backend",          // target service from docker-compose
+  "workspaceFolder": "/app",
+
+  // modern way: put extensions + settings under "customizations"
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.debugpy",
+        "ms-azuretools.vscode-docker"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.analysis.autoImportCompletions": true,
+        "python.linting.enabled": true,
+        "python.testing.pytestEnabled": true
+      }
+    }
+  },
+
+  "remoteUser": "root"
+}

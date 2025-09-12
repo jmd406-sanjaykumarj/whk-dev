@@ -1,0 +1,26 @@
+services:
+  backend:
+    image: crwhkaicontractinghtdevastus01.azurecr.io/contractinsight-backend:latest
+    env_file:
+      - /home/adminuser/secrets/backend.env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    networks:
+      - appnet
+    command: >
+      bash -c "uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
+
+  frontend:
+    image: crwhkaicontractinghtdevastus01.azurecr.io/contractinsight-frontend:latest
+    env_file:
+      - /home/adminuser/secrets/frontend.env
+    ports:
+      - "3000:80"
+    networks:
+      - appnet
+
+networks:
+  appnet:
+    driver: bridge

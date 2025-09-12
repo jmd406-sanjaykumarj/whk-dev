@@ -1,0 +1,26 @@
+{
+  "name": "Frontend Dev Container",
+  "dockerComposeFile": [
+    "../../docker-compose.dev-container.yml"   // relative path from this folder
+  ],
+  "service": "frontend",          // attach to frontend service
+  "workspaceFolder": "/app",      // root folder inside container
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",           // ESLint
+        "esbenp.prettier-vscode",           // Prettier
+        "ms-vscode.vscode-typescript-next", // TypeScript
+        "bradlc.vscode-tailwindcss"         // Tailwind CSS (optional if you use it)
+      ],
+      "settings": {
+        "typescript.tsdk": "/app/node_modules/typescript/lib", // ensure container TypeScript is used
+        "eslint.workingDirectories": [{ "mode": "auto" }],
+        "editor.formatOnSave": true
+      }
+    }
+  },
+
+  "remoteUser": "root"
+}

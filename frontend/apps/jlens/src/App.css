@@ -1,0 +1,4 @@
+/* Hide scrollbar arrows for WebKit-based browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar-button {
+  display: none;
+}

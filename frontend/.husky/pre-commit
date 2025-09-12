@@ -1,0 +1,5 @@
+#!/bin/sh
+echo "Starting pre-commit hook"
+cd frontend || { echo "Failed to cd to frontend"; exit 1; }
+echo "Running pre-commit build"
+npm run build || { echo "Build failed"; exit 1; }
