@@ -24,4 +24,4 @@ app.include_router(messages_router, prefix="/api")
 @app.get("/health")
 def healthcheck():
     print("/health exe")
-    return "OK ??????!!!!!!!"
+    return "OK ?"

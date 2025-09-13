@@ -22,12 +22,23 @@ services:
       context: ./frontend
       dockerfile: Dockerfile.dev
     volumes:
-      - ./.vscode:/app/.vscode
-      - ./frontend/apps:/app/apps
-      - ./frontend/packages:/app/packages
-      - ./frontend/turbo.json:/app/turbo.json
-      - ./frontend/package.json:/app/package.json
-      - ./frontend/package-lock.json:/app/package-lock.json
+      # - ./.vscode:/app/.vscode
+      # - ./frontend/apps:/app/apps
+      # - ./frontend/packages:/app/packages
+      # - ./frontend/turbo.json:/app/turbo.json
+      # - ./frontend/package.json:/app/package.json
+      # - ./frontend/package-lock.json:/app/package-lock.json
+      - ./frontend:/app
+      # Override node_modules with container-managed volumes
+      - /app/node_modules
+      - /app/apps/jlens/node_modules
+      - /app/packages/ui/node_modules
+
+      # Override build artifacts (keep them in container only)
+      - /app/apps/jlens/dist
+      - /app/apps/jlens/.turbo
+      - /app/packages/ui/dist
+      - /app/packages/ui/.turbo
     ports:
       - "3000:3000"
     environment:
